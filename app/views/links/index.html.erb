@@ -4,9 +4,22 @@
   <h3>No urls</h3>
   <p>please enter a url in the form below</p>
 <% else %>
-  <% @links.each do |link| %>
-    <%= link_to link.url, link.short_code  %>
-  <% end %>
+  <div>
+    <table>
+    <th>
+      <tr>
+        <td>URL</td>
+        <td>Short Code</td>
+      </tr>
+    </th>
+      <% @links.each do |link| %>
+        <tr>
+          <td><%= link_to link.url, link.short_code  %></td>
+          <td><%= link.short_code %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 <% end %>
 
 <%= form_for @link do |f|  %>
